@@ -2,9 +2,16 @@ import sys
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
-operation = input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: ")
+while True:
+    operation = input("Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: ")
+    if operation in ['1', '2', '3', '4']:
+        operation = int(operation)
+        break
+    else:
+        logging.debug("Proszę wpisać liczbę 1, 2, 3 lub 4 zgodnie z instrukcją, spróbuj ponownie.")
 
-def getvalue12(user_input):
+def getvalue(user_input):
+    #Funkcja pobierania wartości od użytkownika
     while True:
         try:
             value = float(input(user_input))
@@ -13,11 +20,13 @@ def getvalue12(user_input):
             logging.debug("Program przyjmuje tylko liczby, spróbuj ponownie:")
 
 if operation == 1 or 2:
-    x = getvalue12("Podaj składnik 1: ")
-    y = getvalue12("Podaj składnik 1: ")
-    z = getvalue12("Podaj składnik 3: ")
+    x = getvalue("Podaj składnik 1: ")
+    y = getvalue("Podaj składnik 2: ")
+    z = getvalue("Podaj składnik 3: ")
         
 else:
-    x = input("Podaj składnik 1: ")
-    y = input("Podaj składnik 2: ")
+    x = getvalue("Podaj składnik 1: ")
+    y = getvalue("Podaj składnik 2: ")
+
+
 
